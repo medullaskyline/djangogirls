@@ -23,7 +23,7 @@ def post_new(request):
 			return redirect('blog.views.post_detail', pk=post.pk)
 	else:
 		form = PostForm()
-	return render(request, 'blog/post_edit.html', {'form': form})
+	return render(request, 'blog/post_edit.html', {'form': form, 'new_or_edit': 'New'})
 
 
 def post_edit(request, pk):
@@ -38,4 +38,4 @@ def post_edit(request, pk):
 			return redirect('blog.views.post_detail', pk=post.pk)
 	else:
 		form = PostForm(instance=post)
-	return render(request, 'blog/post_edit.html', {'form': form})
+	return render(request, 'blog/post_edit.html', {'form': form, 'new_or_edit': 'Edit'})
