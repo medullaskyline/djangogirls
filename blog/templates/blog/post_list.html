@@ -3,7 +3,8 @@
 {% block content %}
 	{% for post in posts %}
 	    <div class="post">
-	        <div class="date">published: {{ post.published_date }}</div>
+	        <div class="date">published: {{ post.published_date }} ({{ post.published_date|timesince }} ago)</div>
+	        {#<!-- {{ post.published_date|timesince:current_time }} ago</div> -->#}
 	        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
 	        <p>{{ post.text|linebreaks }}</p>
             <a href="{% url 'post_detail' pk=post.pk %}">
